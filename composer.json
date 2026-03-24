@@ -1,0 +1,27 @@
+{
+    "name": "novatorius/siren-extension-template",
+    "description": "Template for building Siren Affiliates extensions",
+    "type": "wordpress-plugin",
+    "license": "proprietary",
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "authors": [
+        {
+            "name": "Novatorius, LLC",
+            "email": "support@sirenaffiliates.com"
+        }
+    ],
+    "require": {
+        "php": ">=8.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "Siren\\WordPress\\Extensions\\YourExtension\\": "lib/"
+        }
+    },
+    "config": {
+        "allow-plugins": {
+            "composer/installers": true
+        }
+    }
+}

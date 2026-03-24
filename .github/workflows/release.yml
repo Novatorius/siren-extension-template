@@ -1,0 +1,71 @@
+# Build and attach a plugin zip to GitHub Releases.
+#
+# Trigger: create a GitHub release (tag format: v1.0.0).
+# The workflow installs production dependencies, strips dev files,
+# and uploads a clean zip as a release asset.
+#
+# TODO: Update the plugin slug.
+# Replace "siren-your-extension" below with the actual plugin directory name.
+# This controls the folder name inside the zip, which matters for WordPress
+# plugin installation (WordPress extracts the zip and uses the folder name
+# as the plugin slug).
+
+name: Build Release Zip
+
+on:
+  release:
+    types: [created]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.1'
+          tools: composer:v2
+
+      - name: Install dependencies (production only)
+        run: composer install --no-dev --optimize-autoloader --no-interaction
+
+      - name: Prepare plugin directory
+        run: |
+          # TODO: Replace "siren-your-extension" with your plugin slug
+          PLUGIN_SLUG="siren-your-extension"
+
+          mkdir -p build/${PLUGIN_SLUG}
+
+          # Copy plugin files
+          cp plugin.php build/${PLUGIN_SLUG}/
+          cp composer.json build/${PLUGIN_SLUG}/
+          cp -r lib build/${PLUGIN_SLUG}/
+
+          # Copy vendor if it exists (composer dependencies)
+          if [ -d vendor ]; then
+            cp -r vendor build/${PLUGIN_SLUG}/
+          fi
+
+          # Copy public assets if they exist
+          if [ -d public ]; then
+            cp -r public build/${PLUGIN_SLUG}/
+          fi
+
+          # Copy additional files that should be in the release
+          # Add more cp lines here if your extension has extra directories
+          # (e.g., templates/, assets/, languages/)
+
+      - name: Create zip
+        run: |
+          PLUGIN_SLUG="siren-your-extension"
+          cd build
+          zip -r ${PLUGIN_SLUG}.zip ${PLUGIN_SLUG}/
+
+      - name: Upload release asset
+        uses: softprops/action-gh-release@v2
+        with:
+          files: build/siren-your-extension.zip
