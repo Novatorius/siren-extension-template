@@ -1,24 +1,16 @@
 # TODO: Update this file when you clone the template.
 #
-# name:       A short slug for this extension (e.g., 'siren-memberpress')
 # initiative: Always 'siren' for Siren extensions
-# tags:       Include 'siren' plus a tag for this specific extension
-# repository: The GitHub repo for this extension
 #
 # knowledgeDependencies tells Navigator (and AI agents) which KB entries
 # are relevant when working on this project. The PHPNomad and Siren
 # dependencies are critical — they contain the framework patterns and
 # coding standards that this extension must follow.
+#
+# Only canonical fields are supported here (see KB: navigator-yaml-schema):
+# initiative, charter_id, knowledgeDependencies, ci.
 
-name: siren-your-extension
 initiative: siren
-tags:
-  - siren
-  - siren-your-extension
-repository:
-  owner: Novatorius
-  name: siren-your-extension
-description: "Siren extension for Your Extension integration."
 knowledgeDependencies:
   - initiative: phpnomad
     description: "PHPNomad framework patterns and coding standards"
