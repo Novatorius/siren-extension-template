@@ -44,7 +44,7 @@ After cloning, work through these replacements:
 - [ ] `lib/Integration.php` — Namespace, all TODO items
 - [ ] `composer.json` — Package name, description, PSR-4 namespace
 - [ ] `navigator.yaml` — Name, tags, repository
-- [ ] `CLAUDE.md` — Extension-specific context if needed
+- [ ] `AGENTS.md` — Extension-specific agent context if needed (`CLAUDE.md` just points here)
 - [ ] `.github/workflows/release.yml` — Plugin slug
 
 ### Files to update (integrations)
@@ -73,7 +73,8 @@ After cloning, work through these replacements:
 
 ## Architecture
 
-See `CLAUDE.md` for the full architecture guide. In short:
+See the `siren-extension-development-guide` entry in the Navigator KB for the full
+architecture guide (`AGENTS.md` explains how to load it). In short:
 
 **Integrations:**
 ```
