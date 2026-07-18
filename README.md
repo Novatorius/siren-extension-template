@@ -43,7 +43,7 @@ After cloning, work through these replacements:
 - [ ] `plugin.php` — Plugin header, constant name, namespace import
 - [ ] `lib/Integration.php` — Namespace, all TODO items
 - [ ] `composer.json` — Package name, description, PSR-4 namespace
-- [ ] `navigator.yaml` — Name, tags, repository
+- [ ] `navigator.yaml` — Keep `initiative: siren`; add `charter_id` and tailor `knowledgeDependencies` if the extension needs different KB entries
 - [ ] `AGENTS.md` — Extension-specific agent context if needed (`CLAUDE.md` just points here)
 - [ ] `.github/workflows/release.yml` — Plugin slug
 

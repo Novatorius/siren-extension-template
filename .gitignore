@@ -5,3 +5,6 @@
 *.swo
 .idea/
 .vscode/
+
+# Generated agent KB context (rebuilt on demand via `navigator kb context`)
+/.claude/kb-context.md
