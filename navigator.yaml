@@ -11,6 +11,8 @@
 # initiative, charter_id, knowledgeDependencies, ci.
 
 initiative: siren
+ci:
+  setup: composer install
 knowledgeDependencies:
   - initiative: phpnomad
     description: "PHPNomad framework patterns and coding standards"
@@ -18,5 +20,19 @@ knowledgeDependencies:
       - initiatives-nomadic-development-start-here
       - initiatives-nomadic-development-anti-patterns-anti-patterns
       - initiatives-nomadic-development-coding-standards-the-stack-elevator
+      - global-definition-of-done
+      - global-failure-and-logging-doctrine
+      - global-unit-testing-standards-modifying-existing-tests
+      - global-taxonomy-and-sdk-doctrine
+      - global-integration-testing-standards-introduction
+      - global-e2e-testing-standards-introduction
+      - global-pattern-decidability-doctrine
+      - global-silent-failure-rules
   - initiative: siren
     description: "Siren documentation and extension patterns"
+    critical:
+      - siren-extension-development-guide
+  - initiative: navigator
+    description: "Autonomous worker conventions"
+    critical:
+      - conventions-autonomous-worker
