@@ -13,6 +13,11 @@
 initiative: siren
 ci:
   setup: composer install
+autoMerge:
+  enabled: true
+  rubric: global-auto-merge-review-rubric
+  allowedCategories: [docs]          # proven-safe category; widen as trust grows
+  alwaysHuman: [payments, migrations, auth, security]
 knowledgeDependencies:
   - initiative: phpnomad
     description: "PHPNomad framework patterns and coding standards"
